@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title>Blog Poster</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form #f="ngForm" (ngSubmit)="submitBlogPost(f)">
+      <ion-list>
+        <ion-item>
+            <ion-label>Users</ion-label>
+            <ion-select name="userId" [(ngModel)]="user" required>
+              <ion-option *ngFor="let item of users" value="{{item.id}}">{{item.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Blog Post Title</ion-label>
+            <ion-input name="title" type="text" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Message</ion-label>
+              <ion-input name="message" type="text" ngModel required></ion-input>
+          </ion-item>
+      </ion-list>
+      <button ion-button type="submit" block [disabled]="!f.valid">Done</button>
+    </form>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title>
+      Find a Post
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="filterPosts($event)" ></ion-searchbar>
+    <ion-list>
+        <button ion-item *ngFor="let post of posts">
+          {{ post.title }}
+        </button> 
+      </ion-list>
+</ion-content>
